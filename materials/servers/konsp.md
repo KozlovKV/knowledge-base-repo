@@ -52,3 +52,14 @@
 - `dmesg -T` - также выводит логи ядра
 - `journalctl` - выводит логи сервисов (по умолчанию выведет лог системы)
   - `-xeu <service>` - лог конкретного сервиса
+
+## Контроль температуры
+По [этой статье](https://losst.pro/izmerenie-temperatury-v-linux#chto-my-budem-ispolzovat)
+
+В целом, меня оттуда интересовала только первая утилита, так что вот для неё процесс установки:
+```sh
+sudo apt install -y lm-sensors
+sudo sensors detect
+sudo systemctl enable lm-sensors
+```
+Теперь можем писать `sensors` и мониторить температуру
